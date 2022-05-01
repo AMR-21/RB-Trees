@@ -1,13 +1,46 @@
-from RB import RBTree as tree
+from Dic import Dictionary as d
 
+d1 = d('W:\Projects\Data Structures II\RB-Trees\EN-US-Dictionary.txt')
 
-  
-list = [41, 38, 31, 12, 19, 8]
+def printSize():
+    size = d1.tree.size(d1.tree.root)
+    height = d1.tree.height(d1.tree.root)
+    print('''Current dictionary size is {}
+Current Red-Black tree height is {}\n'''.format(size, height))
 
-t1 = tree()
-for i in range(0,len(list)):
-    t1.insert(list[i])      
+func = None
+menu = '''
+Menu:
+=====
+1. Load
+2. Insert word
+3. Look-up word
+4. Exit'''
 
-print(t1.search(413))
-print(t1.height(t1.root))   
-print(t1.size(t1.root)) 
+print(menu)
+while func != 'exit':
+    try:
+        f = int(input('Choose a function: '))
+    except:
+        print('Not a number')
+        continue
+    if f == 1:
+        d1.load()
+        printSize()
+    elif f == 2:
+        word = input('Enter the word: ')
+        word += '\n'
+        print(d1.insert(word))
+        printSize()
+    elif f == 3:
+        word = input('Enter the word: ')
+        word += '\n'
+        if d1.lookUP(word):
+            print('Yes, {} exists\n'.format(word.strip()))
+        else:
+            print('No, {} does not exist\n'.format(word.strip()))             
+    elif f == 4:
+        func = 'exit'
+    else:
+        print ('Wrong input')    
+    

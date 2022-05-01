@@ -115,15 +115,16 @@ class RBTree:
       self.root.red = False        
   
   def search(self, key):
+    #normal BST search
       current = self.root
       while current != self.nil:
-        if key < current.key:
+        if key.casefold() < current.key.casefold():
           current = current.left
-        elif key > current.key:
+        elif key.casefold() > current.key.casefold():
           current = current.right
         else:
-          return "Element with key {} exists".format(current.key)    
-      return "Does not exist"  
+          return True    
+      return False 
 
   def height(self,n):
         if n == self.nil:
