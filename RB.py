@@ -118,9 +118,9 @@ class RBTree:
     #normal BST search
       current = self.root
       while current != self.nil:
-        if key.casefold() < current.key.casefold():
+        if key.casefold() < current.key:
           current = current.left
-        elif key.casefold() > current.key.casefold():
+        elif key.casefold() > current.key:
           current = current.right
         else:
           return True    

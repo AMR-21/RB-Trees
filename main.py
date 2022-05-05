@@ -12,7 +12,7 @@ func = None
 menu = '''
 Menu:
 =====
-1. Load
+1. Load dictionary
 2. Insert word
 3. Look-up word
 4. Exit'''

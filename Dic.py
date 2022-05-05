@@ -1,4 +1,3 @@
-from importlib.resources import path
 from RB import RBTree as Tree
 
 class Dictionary:
@@ -10,7 +9,7 @@ class Dictionary:
     with open(self.path,"r",encoding="UTF-8") as f:
       self.lines=f.readlines()
     for line in self.lines:
-      self.tree.insert(line) 
+      self.tree.insert(line.casefold()) 
   
   def size(self):
     return self.tree.size(self.tree.root)
